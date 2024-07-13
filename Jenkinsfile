@@ -34,16 +34,12 @@ node {
         echo "Successfully pushed to Nexus repository"
     }
 
-//     stage('Deploy to Kubernetes') {
-//     // Replace with your Kubernetes config credentials ID
-
-//     kubernetesDeploy(
-//         kubeconfigId: kubeConfig,
-//         manifests: 'kubernetes.yaml', // Reference to your combined YAML file
-//         enableConfigSubstitution: true
-//         // No namespace specified, deploys to the default namespace
-//     )
-//     echo "Successfully deployed to Kubernetes"
-// }
+    stage('Deploy to Minikube') {
+        withEnv(["KUBECONFIG=${KUBE_CONFIG_PATH}"]) {
+            bat "kubectl version"
+            // bat "kubectl apply -f deployment.yaml"
+        }
+        echo "Deployment Successful....."
+    }
 
 }
