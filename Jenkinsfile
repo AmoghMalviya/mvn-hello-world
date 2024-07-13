@@ -36,7 +36,7 @@ node {
         withCredentials([file(credentialsId: 'k1', variable: 'KUBECONFIG')]) {
             bat "kubectl version"
             // Uncomment the following line to apply your deployment
-            // bat "kubectl apply -f deployment.yaml"
+            bat "kubectl apply -f deployment.yaml"
         }
         echo "Deployment Successful....."
     }
