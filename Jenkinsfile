@@ -18,7 +18,7 @@ node {
 
     // Stage: Build Maven Project
     stage('Build Maven Project') {
-        sh "${mavenTool}/bin/mvn clean install"
+        bat "${mavenTool}/bin/mvn clean install"
     }
 
 //     // Stage: Build Docker Image
