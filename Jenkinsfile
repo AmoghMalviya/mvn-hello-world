@@ -36,8 +36,8 @@ node {
 
     stage('Deploy to Minikube') {
         withEnv(["KUBECONFIG=${KUBE_CONFIG_PATH}"]) {
-            bat "kubectl version"
-            // bat "kubectl apply -f deployment.yaml"
+            // bat "kubectl version"
+            bat "kubectl apply -f deployment.yaml"
         }
         echo "Deployment Successful....."
     }
