@@ -1,9 +1,9 @@
 node {
     // Define environment variables
-    // def KUBE_CONFIG_PATH = 'C:\\Users\\Amogh.Malviya\\.kube\\config'
-    // def NEXUS_URL = 'http://localhost:8082/repository/mvn-hello/'
-    // def DOCKER_IMAGE = 'mvn-hello-world'
-    // def kubeConfig = credentials('k1') // Replace with your Kubernetes config credentials ID
+    def KUBE_CONFIG_PATH = 'C:\\Users\\Amogh.Malviya\\.kube\\config'
+    def NEXUS_URL = 'http://localhost:8082/repository/mvn-hello/'
+    def DOCKER_IMAGE = 'mvn-hello-world'
+    def kubeConfig = credentials('k1') // Replace with your Kubernetes config credentials ID
     
 
     // Define tools to be used
@@ -21,10 +21,10 @@ node {
         bat "${mavenTool}/bin/mvn clean install"
     }
 
-//     // Stage: Build Docker Image
-//     stage('Build Docker Image') {
-//         sh "${dockerTool}/bin/docker build -t ${DOCKER_IMAGE} ."
-//     }
+    // Stage: Build Docker Image
+    stage('Build Docker Image') {
+        bat "${dockerTool}/bin/docker build -t ${DOCKER_IMAGE} ."
+    }
 
 //     // Stage: Push Docker image to Nexus
 //     stage('Push Docker image to Nexus') {
